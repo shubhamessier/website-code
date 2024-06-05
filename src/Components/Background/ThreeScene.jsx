@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import NET from "vanta/dist/vanta.net.min";
 import Navbar from "../NavbarPage/Navbar";
 import Hero from "../HeroSection/Hero";
-import Scroll from "../ImageSection/Scroll";
+import Image from "../ImageElement/About";
 import Contact from "../ContactSection/Contact";
 
 const ThreeScene = () => {
@@ -48,7 +48,7 @@ const ThreeScene = () => {
       />
       <Navbar />
       <Hero />
-      <Scroll />
+      <Image />
       {/* <Contact /> */}
     </div>
   );
