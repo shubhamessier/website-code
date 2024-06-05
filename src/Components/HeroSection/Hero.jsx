@@ -18,9 +18,8 @@ const HeroSection = () => {
           <h1>We're Anti AI, An Innovation Powerhouse.</h1>
           <p>
             We're An Innovative Software Company. Protecting Humanity from the{" "}
-            <br /> uncontrolled rise of Artificial Intelligence, Safeguarding
-            people across the globe <br /> through our Innovative Software
-            solutions.
+            uncontrolled rise of Artificial Intelligence, Safeguarding people
+            across the globe through our Innovative Software solutions.
           </p>
         </div>
       </section>
