@@ -1,8 +1,13 @@
+* {
+  z-index: 3;
+}
+
 .navbar {
   height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: "fixed";
   font-size: 1.2rem;
 }
 .navbar-container {
@@ -12,6 +17,7 @@
   z-index: 1;
   width: 100%;
   max-width: auto;
+  position: fixed;
   padding-left: 2.7rem;
   padding-right: 1.6rem;
   padding-top: 0.5rem;

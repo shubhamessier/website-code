@@ -1,0 +1,27 @@
+.scroll-reveal-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal-element.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal-element .image {
+  max-width: 300px;
+  margin-bottom: 1rem;
+}
+
+.scroll-reveal-element .text {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.image {
+  max-width: 60%;
+}
