@@ -1,136 +1,105 @@
-@import url("https://fonts.googleapis.com/css?family=Quicksand:400,700");
-
-* {
-  background-color: 0x0;
+.navbar {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
 }
-.wrapper {
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  z-index: 1;
   width: 100%;
-  max-width: 1300px;
-  margin: 0 auto;
+  max-width: auto;
+  padding-left: 2.7rem;
+  padding-right: 1.6rem;
+  padding-top: 0.5rem;
 }
-header {
-  color: #ebebd3;
-  position: relative;
-  padding: 1.9em 0;
+.menu-icon {
+  display: none;
 }
-header::after {
-  content: "";
-  clear: both;
-  display: block;
-}
-.logo {
-  float: left;
-  font-size: 1rem;
-  margin: 0;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-.logo span {
-  font-weight: 400;
-}
-.main-nav {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  left: 0;
-  background: #464655;
-  height: 0;
-  overflow: hidden;
-}
-.main-nav-open {
-  height: auto;
-}
-.main-nav ul {
-  margin: 0;
-  padding: 0;
+.nav-menu {
+  display: flex;
+  align-items: center;
   list-style: none;
-}
-.main-nav li {
-  border-bottom: 1px solid #575766;
-}
-.main-nav li:last-child {
-  border-bottom: none;
-}
-.main-nav a {
-  color: white;
-  display: block;
-  padding: 1em 1em;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-.main-nav a:hover,
-.main-nav a:focus {
-  background: #e4b363;
-  color: #464655;
-}
-.nav-icon {
-  display: inline-block;
-  font-size: 1.3em;
-  margin-right: 0.5em;
   text-align: center;
-  width: 1.1em;
-  color: rgba(255, 255, 255, 0.45);
+  padding-top: 30px;
 }
-.menu-toggle {
-  padding: 1em;
+
+.nav-item {
+  height: 60px;
+}
+.nav-links {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+}
+.nav-links:hover {
+  background-color: #575757;
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+}
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #fff;
+  }
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90vh;
+    position: absolute;
+    top: 60px;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    background: #333;
+  }
+  .nav-menu.active {
+    background: #333;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+  .nav-item {
+    margin: 0;
+  }
+  .nav-links {
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+}
+.logo-container {
   position: absolute;
-  top: 0.5em;
-  right: 0.2em;
-  cursor: pointer;
+  top: 20px;
+  left: 0px;
+  z-index: 1000; /* Ensures the logo is on top of other elements */
 }
-.hamburger,
-.hamburger::before,
-.hamburger::after {
-  content: "";
+.logo-image {
+  width: 100px; /* Adjust size as needed */
+  height: auto; /* Maintains aspect ratio */
   display: block;
-  background: #ebebd3;
-  height: 3px;
-  width: 1.75em;
-  transition: all ease-in-out 500ms;
+  padding-top: 10px;
+  transition: transform 0.3s ease;
 }
-.hamburger::before {
-  transform: translateY(-6px);
+.logo-image:hover {
+  transform: scale(1.05); /* Slightly enlarges the logo on hover */
 }
-.hamburger::after {
-  transform: translateY(3px);
-}
-.open .hamburger {
-  transform: rotate(45deg);
-}
-.open .hamburger::before {
-  opacity: 0;
-}
-.open .hamburger::after {
-  transform: rotate(90deg) translateY(3px);
-}
-@media only screen and (min-width: 700px) {
-  .menu-toggle {
-    display: none;
-  }
-
-  .main-nav {
-    height: auto;
-    position: relative;
-    background: transparent;
-    float: right;
-  }
-
-  .main-nav li {
-    display: inline-block;
-    border: none;
-  }
-
-  .main-nav a {
-    padding: 0;
-    margin-left: 2em;
-  }
-
-  .main-nav a:hover,
-  .main-nav a:focus {
-    background: transparent;
-  }
-
-  .nav-icon {
-    display: none;
-  }
+/* App.css (existing file, just add this line) */
+.app-container {
+  position: relative; /* Add this to make absolute positioning of logo work */
+  /* ... existing styles ... */
 }

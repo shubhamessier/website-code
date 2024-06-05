@@ -1,59 +1,48 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import $ from "jquery";
+import logoImage from "./AntiAilogo.png";
 import "./NavbarStyle.css";
 const Navbar = () => {
-  useEffect(() => {
-    // This code runs after the component mounts
-    const handleMenuToggle = () => {
-      $(".main-nav").toggleClass("main-nav-open", 500);
-      $(".menu-toggle").toggleClass("open");
-    };
-    $(".menu-toggle").on("click", handleMenuToggle);
-    // Cleanup function to remove the event listener when the component unmounts
-    return () => {
-      $(".menu-toggle").off("click", handleMenuToggle);
-    };
-  }, []);
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
   return (
-    <header>
-      <div className="wrapper">
-        <h1 className="logo">
-          <img src="public\logo.jpeg" alt="" />
-        </h1>
-        <nav className="main-nav">
-          <ul>
-            <li>
-              <a href="#">
-                <i className="fa fa-home nav-icon"></i>Home
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="fa fa-info nav-icon"></i>About
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="fa fa-usd nav-icon"></i>Service
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="fa fa-pencil nav-icon"></i>Blog
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="fa fa-envelope nav-icon"></i>Contact Us
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <div className="menu-toggle">
-          <div className="hamburger"></div>
+    <nav className="navbar">
+      <div className="navbar-container">
+        <div className="navbar-logo">
+          <img src={logoImage} alt="Company Logo" className="logo-image" />
         </div>
+        <div
+          className={`menu-icon ${isOpen ? "active" : ""}`}
+          onClick={toggleNavbar}
+        >
+          <i className={`fas ${isOpen ? "fa-times" : "fa-bars"}`}></i>
+        </div>
+        <ul className={`nav-menu ${isOpen ? "active" : ""}`}>
+          <li className="nav-item">
+            <a href="/" className="nav-links">
+              Home
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="/about" className="nav-links">
+              About
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="/services" className="nav-links">
+              Projects
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="/contact" className="nav-links">
+              Contact
+            </a>
+          </li>
+        </ul>
       </div>
-    </header>
+    </nav>
   );
 };
 export default Navbar;

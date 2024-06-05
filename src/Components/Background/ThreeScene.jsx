@@ -14,7 +14,7 @@ const ThreeScene = () => {
       gyroControls: true,
       minHeight: 200.0,
       minWidth: 200.0,
-      scale: 1.0,
+      scale: 1.5,
       scaleMobile: 1.0,
       color: 0xf5f5f5,
       backgroundColor: 0x0,
