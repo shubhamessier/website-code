@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import NET from "vanta/dist/vanta.net.min";
 import Navbar from "../NavbarPage/Navbar";
+import Hero from "../HeroSection/Hero";
+import Contact from "../ContactSection/Contact";
+
 const ThreeScene = () => {
   const vantaRef = useRef(null);
   useEffect(() => {
@@ -20,30 +23,33 @@ const ThreeScene = () => {
       if (vantaEffect) vantaEffect.destroy();
     };
   }, []);
+
   return (
-    <div style={{ position: "relative", width: "100%", height: "100vh" }}>
+    <div
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "100vh",
+        overflow: "auto",
+        backgroundColor: "transparent",
+      }}
+    >
       <div
         ref={vantaRef}
         style={{
-          position: "absolute",
+          position: "fixed",
           top: 0,
           left: 0,
           width: "100%",
           height: "100%",
+          zIndex: -1,
         }}
       />
       <Navbar />
-      <div
-        style={{
-          position: "relative",
-          zIndex: 1,
-          color: "white",
-          textAlign: "center",
-          top: "50%",
-          transform: "translateY(-30%)",
-        }}
-      ></div>
+      <Hero />
+      {/* <Contact /> */}
     </div>
   );
 };
+
 export default ThreeScene;

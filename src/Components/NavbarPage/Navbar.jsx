@@ -18,7 +18,7 @@ const Navbar = () => {
     <header>
       <div className="wrapper">
         <h1 className="logo">
-          Generic<span>Logo</span>
+          <img src="public\logo.jpeg" alt="" />
         </h1>
         <nav className="main-nav">
           <ul>

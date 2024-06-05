@@ -1,13 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Quicksand:400,700");
+
+* {
+  background-color: 0x0;
+}
 .wrapper {
-  width: 95%;
-  max-width: 1000px;
+  width: 100%;
+  max-width: 1300px;
   margin: 0 auto;
 }
 header {
   color: #ebebd3;
   position: relative;
-  padding: 1em 0;
+  padding: 1.9em 0;
 }
 header::after {
   content: "";
