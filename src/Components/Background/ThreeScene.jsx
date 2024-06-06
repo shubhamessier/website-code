@@ -4,6 +4,7 @@ import Navbar from "../NavbarPage/Navbar";
 import Hero from "../HeroSection/Hero";
 import Image from "../ImageElement/About";
 import Contact from "../ContactSection/Contact";
+import Career from "../CareersPage/Career";
 
 const ThreeScene = () => {
   const vantaRef = useRef(null);
@@ -49,6 +50,7 @@ const ThreeScene = () => {
       <Navbar />
       <Hero />
       <Image />
+      <Career />
       {/* <Contact /> */}
     </div>
   );
