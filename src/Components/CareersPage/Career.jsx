@@ -1,176 +1,330 @@
-import { useState } from 'react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { Field, Label, Switch } from '@headlessui/react'
+import React, { useState, useEffect } from "react";
+import {
+  Box,
+  Button,
+  TextField,
+  Select,
+  MenuItem,
+  InputLabel,
+  FormControl,
+  Typography,
+  Grid,
+  Paper,
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+function App() {
+  const [data, setData] = useState(null); // Define setData here
 
-export default function Example() {
-  const [agreed, setAgreed] = useState(false)
+  useEffect(() => {
+    fetch("https://mocki.io/v1/90c36e28-d684-46a9-8bfe-575f69af0061")
+      .then((response) => response.json())
+      .then((json) => setData(json));
+  }, []);
 
   return (
-    <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
-      <div
-        className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
-        aria-hidden="true"
-      >
-        <div
-          className="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
-          style={{
-            clipPath:
-              'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-          }}
-        />
-      </div>
-      <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Contact sales</h2>
-        <p className="mt-2 text-lg leading-8 text-gray-600">
-          Aute magna irure deserunt veniam aliqua magna enim voluptate.
-        </p>
-      </div>
-      <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-          <div>
-            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
-              First name
-            </label>
-            <div className="mt-2.5">
-              <input
-                type="text"
-                name="first-name"
-                id="first-name"
-                autoComplete="given-name"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div>
-            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900">
-              Last name
-            </label>
-            <div className="mt-2.5">
-              <input
-                type="text"
-                name="last-name"
-                id="last-name"
-                autoComplete="family-name"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div className="sm:col-span-2">
-            <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900">
-              Company
-            </label>
-            <div className="mt-2.5">
-              <input
-                type="text"
-                name="company"
-                id="company"
-                autoComplete="organization"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div className="sm:col-span-2">
-            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
-              Email
-            </label>
-            <div className="mt-2.5">
-              <input
-                type="email"
-                name="email"
-                id="email"
-                autoComplete="email"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div className="sm:col-span-2">
-            <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-gray-900">
-              Phone number
-            </label>
-            <div className="relative mt-2.5">
-              <div className="absolute inset-y-0 left-0 flex items-center">
-                <label htmlFor="country" className="sr-only">
-                  Country
-                </label>
-                <select
-                  id="country"
-                  name="country"
-                  className="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-9 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
-                >
-                  <option>US</option>
-                  <option>CA</option>
-                  <option>EU</option>
-                </select>
-                <ChevronDownIcon
-                  className="pointer-events-none absolute right-3 top-0 h-full w-5 text-gray-400"
-                  aria-hidden="true"
-                />
-              </div>
-              <input
-                type="tel"
-                name="phone-number"
-                id="phone-number"
-                autoComplete="tel"
-                className="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div className="sm:col-span-2">
-            <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
-              Message
-            </label>
-            <div className="mt-2.5">
-              <textarea
-                name="message"
-                id="message"
-                rows={4}
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                defaultValue={''}
-              />
-            </div>
-          </div>
-          <Field as="div" className="flex gap-x-4 sm:col-span-2">
-            <div className="flex h-6 items-center">
-              <Switch
-                checked={agreed}
-                onChange={setAgreed}
-                className={classNames(
-                  agreed ? 'bg-indigo-600' : 'bg-gray-200',
-                  'flex w-8 flex-none cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-                )}
-              >
-                <span className="sr-only">Agree to policies</span>
-                <span
-                  aria-hidden="true"
-                  className={classNames(
-                    agreed ? 'translate-x-3.5' : 'translate-x-0',
-                    'h-4 w-4 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out'
-                  )}
-                />
-              </Switch>
-            </div>
-            <Label className="text-sm leading-6 text-gray-600">
-              By selecting this, you agree to our{' '}
-              <a href="#" className="font-semibold text-indigo-600">
-                privacy&nbsp;policy
-              </a>
-              .
-            </Label>
-          </Field>
-        </div>
-        <div className="mt-10">
-          <button
-            type="submit"
-            className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            Let's talk
-          </button>
-        </div>
-      </form>
+    <div>
+      {data && (
+        <ul>
+          {data.map((item) => (
+            <li key={item.id}>{item.name}</li>
+          ))}
+        </ul>
+      )}
     </div>
-  )
+  );
 }
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const useStyles = makeStyles((theme) => ({
+  form: {
+    maxWidth: 600,
+    margin: "auto",
+    padding: theme.spacing(3),
+    boxShadow: theme.shadows,
+    borderRadius: theme.shape.borderRadius * 2,
+    backgroundColor: theme.palette.background.paper,
+  },
+  formInput: {
+    borderRadius: theme.shape.borderRadius,
+    "& .MuiOutlinedInput-input": {
+      padding: theme.spacing(1.5),
+    },
+  },
+  formLabel: {
+    color: theme.palette.text.secondary,
+  },
+  formTitle: {
+    marginBottom: theme.spacing(3),
+    fontWeight: 600,
+  },
+  uploadButton: {
+    backgroundColor: theme.palette.primary.light,
+    color: theme.palette.primary.contrastText,
+    borderRadius: theme.shape.borderRadius,
+    "&:hover": {
+      backgroundColor: theme.palette.primary.main,
+    },
+  },
+  submitButton: {
+    borderRadius: theme.shape.borderRadius * 2,
+    height: 48,
+    fontSize: 16,
+    fontWeight: 600,
+  },
+  gridItem: {
+    padding: theme.spacing(1),
+  },
+}));
+
+const JobApplicationForm = () => {
+  const classes = useStyles();
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phoneNumber: "",
+    jobPosition: "",
+    resume: null,
+    coverLetter: "",
+    location: "",
+    yearsOfExperience: "",
+    skills: "",
+    city: "",
+    state: "",
+    country: "",
+  });
+
+  const [availablePositions, setAvailablePositions] = useState([
+    "Software Engineer",
+    "Product Manager",
+    "UI/UX Designer",
+    "Data Analyst",
+    "Marketing Specialist",
+  ]);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFileChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.files });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!emailRegex.test(formData.email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+    // Submit form data to server or perform desired action
+    console.log(formData);
+  };
+
+  return (
+    <Paper elevation={3} className={classes.form}>
+      <Typography variant="h4" className={classes.formTitle} color="black">
+        Open Position
+      </Typography>
+
+      <Grid container spacing={3}>
+        <Grid item xs={12} className={classes.gridItem}>
+          <TextField
+            label="Full Name"
+            name="fullName"
+            value={formData.fullName}
+            onChange={handleChange}
+            required
+            fullWidth
+            className={classes.formInput}
+            InputProps={{
+              classes: {
+                input: classes.formInput,
+              },
+            }}
+            InputLabelProps={{
+              className: classes.formLabel,
+            }}
+          />
+        </Grid>
+
+        <Grid item xs={12} className={classes.gridItem}>
+          <TextField
+            label="Email"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            fullWidth
+            className={classes.formInput}
+            InputProps={{
+              classes: {
+                input: classes.formInput,
+              },
+            }}
+            InputLabelProps={{
+              className: classes.formLabel,
+            }}
+          />
+        </Grid>
+
+        <Grid item xs={12} className={classes.gridItem}>
+          <TextField
+            label="Phone Number"
+            name="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+            required
+            fullWidth
+            className={classes.formInput}
+            InputProps={{
+              classes: {
+                input: classes.formInput,
+              },
+            }}
+            InputLabelProps={{
+              className: classes.formLabel,
+            }}
+          />
+        </Grid>
+
+        <Grid item xs={12} sm={6} className={classes.gridItem}>
+          <FormControl fullWidth className={classes.formInput}>
+            <InputLabel id="job-position-label" className={classes.formLabel}>
+              Job Position
+            </InputLabel>
+            <Select
+              labelId="job-position-label"
+              id="jobPosition"
+              name="jobPosition"
+              value={formData.jobPosition}
+              onChange={handleChange}
+              required
+              className={classes.formInput}
+            >
+              <MenuItem value="">Select a position</MenuItem>
+              {availablePositions.map((position) => (
+                <MenuItem key={position} value={position}>
+                  {position}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Grid>
+
+        <Grid item xs={12} sm={6} className={classes.gridItem}>
+          <FormControl fullWidth className={classes.formInput}>
+            <InputLabel id="location-label" className={classes.formLabel}>
+              Location
+            </InputLabel>
+            <Select
+              labelId="location-label"
+              id="location"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+              required
+              className={classes.formInput}
+            ></Select>
+          </FormControl>
+        </Grid>
+
+        <Grid item xs={12} className={classes.gridItem}>
+          <TextField
+            label="Years of Experience"
+            name="yearsOfExperience"
+            type="number"
+            value={formData.yearsOfExperience}
+            onChange={handleChange}
+            fullWidth
+            className={classes.formInput}
+            InputProps={{
+              classes: {
+                input: classes.formInput,
+              },
+            }}
+            InputLabelProps={{
+              className: classes.formLabel,
+            }}
+          />
+        </Grid>
+
+        <Grid item xs={12} className={classes.gridItem}>
+          <TextField
+            label="Skills"
+            name="skills"
+            value={formData.skills}
+            onChange={handleChange}
+            multiline
+            rows={4}
+            fullWidth
+            className={classes.formInput}
+            InputProps={{
+              classes: {
+                input: classes.formInput,
+              },
+            }}
+            InputLabelProps={{
+              className: classes.formLabel,
+            }}
+          />
+        </Grid>
+
+        <Grid item xs={12} className={classes.gridItem}>
+          <Box mt={2}>
+            <Button
+              variant="contained"
+              component="label"
+              className={classes.uploadButton}
+            >
+              Upload Resume
+              <input
+                type="file"
+                name="resume"
+                onChange={handleFileChange}
+                hidden
+              />
+            </Button>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} className={classes.gridItem}>
+          <TextField
+            label="Cover Letter"
+            name="coverLetter"
+            value={formData.coverLetter}
+            onChange={handleChange}
+            multiline
+            rows={6}
+            fullWidth
+            className={classes.formInput}
+            InputProps={{
+              classes: {
+                input: classes.formInput,
+              },
+            }}
+            InputLabelProps={{
+              className: classes.formLabel,
+            }}
+          />
+        </Grid>
+
+        <Grid item xs={12} className={classes.gridItem}>
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+            className={classes.submitButton}
+            onClick={handleSubmit}
+          >
+            Submit Application
+          </Button>
+        </Grid>
+      </Grid>
+    </Paper>
+  );
+};
+
+export default JobApplicationForm;
