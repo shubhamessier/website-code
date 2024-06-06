@@ -11,7 +11,7 @@ body {
 }
 .hero {
   position: relative;
-  height: 100vh;
+  height: 70vh;
   background-size: cover;
   text-align: left;
 }
@@ -30,6 +30,7 @@ body {
   margin-top: 5%;
   backdrop-filter: blur(15px);
   transform: translateY(-50%);
+  max-height: 200px;
   max-width: 700px;
   opacity: 1; /* Add this line */
   transition: opacity 0.5s ease-in-out; /* Add this line */
@@ -80,5 +81,5 @@ h1 {
   justify-content: center;
   border-radius: 10px;
   align-items: left;
-  height: 100vh;
+  height: 50vh;
 }
