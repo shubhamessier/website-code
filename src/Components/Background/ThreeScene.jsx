@@ -3,8 +3,9 @@ import NET from "vanta/dist/vanta.net.min";
 import Navbar from "../NavbarPage/Navbar";
 import Hero from "../HeroSection/Hero";
 import Image from "../ImageElement/About";
-import Contact from "../ContactSection/Contact";
+// import Contact from "../ContactSection/Contact";
 import Career from "../CareersPage/Career";
+import Count from "../CountSection/Count";
 
 const ThreeScene = () => {
   const vantaRef = useRef(null);
@@ -48,9 +49,12 @@ const ThreeScene = () => {
         }}
       />
       <Navbar />
+
       <Hero />
+      <Count />
       <Image />
       <Career />
+
       {/* <Contact /> */}
     </div>
   );

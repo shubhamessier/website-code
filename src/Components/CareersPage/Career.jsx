@@ -288,28 +288,6 @@ const JobApplicationForm = () => {
             </Button>
           </Box>
         </Grid>
-
-        <Grid item xs={12} className={classes.gridItem}>
-          <TextField
-            label="Cover Letter"
-            name="coverLetter"
-            value={formData.coverLetter}
-            onChange={handleChange}
-            multiline
-            rows={6}
-            fullWidth
-            className={classes.formInput}
-            InputProps={{
-              classes: {
-                input: classes.formInput,
-              },
-            }}
-            InputLabelProps={{
-              className: classes.formLabel,
-            }}
-          />
-        </Grid>
-
         <Grid item xs={12} className={classes.gridItem}>
           <Button
             type="submit"
