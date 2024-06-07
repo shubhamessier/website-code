@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import NET from "vanta/dist/vanta.net.min";
-import Navbar from "../NavbarPage/Navbar";
+import Navbar from "../NavbarSection/Navbar";
 import Hero from "../HeroSection/Hero";
 import Image from "../ImageElement/About";
 // import Contact from "../ContactSection/Contact";
-import Career from "../CareersPage/Career";
 import Count from "../CountSection/Count";
 
 const ThreeScene = () => {
@@ -48,7 +47,6 @@ const ThreeScene = () => {
           zIndex: -1,
         }}
       />
-      <Navbar />
 
       <Hero />
       <Count />

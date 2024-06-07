@@ -1,285 +1,165 @@
-import React, { useState, useEffect } from "react";
-import {
-  Box,
-  Button,
-  TextField,
-  Select,
-  MenuItem,
-  InputLabel,
-  FormControl,
-  Typography,
-  Grid,
-  Paper,
-} from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useState } from "react";
+import { Alert, Space, Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
+import { useForm } from "react-hook-form";
 
-function App() {
-  const [data, setData] = useState(null); // Define setData here
+import "./Career.css";
 
-  useEffect(() => {
-    fetch("https://mocki.io/v1/90c36e28-d684-46a9-8bfe-575f69af0061")
-      .then((response) => response.json())
-      .then((json) => setData(json));
-  }, []);
+export default function App() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+    reset,
+  } = useForm();
+
+  const [successMessage, setSuccessMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = async (data) => {
+    setLoading(true);
+    const formData = {
+      name: data["First name"],
+      email: data.Email,
+      contact_no: data["Mobile number"],
+      current_location: data["Current Location"],
+      role: data.Role,
+      resume_link: data["Resume Link"],
+    };
+
+    try {
+      const response = await fetch(
+        "https://anti-backend.onrender.com/applyJobProfile",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (response.ok) {
+        setSuccessMessage("Form submitted successfully!");
+        console.log("Data sent successfully");
+        reset(); // Clear the form data
+      } else {
+        console.error("Error sending data");
+      }
+    } catch (error) {
+      console.error("Error sending data", error);
+    }
+
+    setLoading(false);
+  };
 
   return (
-    <div>
-      {data && (
+    <div className="container">
+      <div className="text-container">
+        <h1>Open Positions</h1>
+        <p>
+          We at Anti AI are looking for curious minds from a wide range of
+          disciplines and backgrounds. You are an ideal candidate if:
+        </p>
         <ul>
-          {data.map((item) => (
-            <li key={item.id}>{item.name}</li>
-          ))}
+          <li>Passionate about technology and its impact on society.</li>
+          <li>
+            Strong problem-solving skills and ability to think creatively.
+          </li>
+          <li>Not bound by any technical stack.</li>
+          <li>Belive Hacking is a beautiful art.</li>
+          <li>Are a Nerd.</li>
+          <li>
+            Familiar with either Machine learning/Artificial Intelligence or
+            Full Stack Web Devlopment.
+          </li>
+          <li>You love solving challenges, problems.</li>
         </ul>
-      )}
+      </div>
+      <div className="form-container">
+        <Spin
+          spinning={loading}
+          indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />}
+        >
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <input
+              type="text"
+              placeholder="First name"
+              className={errors["First name"] ? "error-input" : ""}
+              {...register("First name", { required: true, maxLength: 80 })}
+            />
+
+            <input
+              type="text"
+              placeholder="Email"
+              className={errors.Email ? "error-input" : ""}
+              {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
+            />
+
+            <input
+              type="tel"
+              placeholder="Mobile number"
+              className={errors["Mobile number"] ? "error-input" : ""}
+              {...register("Mobile number", {
+                required: true,
+                minLength: 6,
+                maxLength: 12,
+              })}
+            />
+
+            <input
+              type="url"
+              placeholder="Resume Link (Only Gdrive Links allowed.)"
+              className={errors["Resume Link"] ? "error-input" : ""}
+              {...register("Resume Link", { required: true })}
+            />
+
+            <input
+              type="text"
+              placeholder="Current Location"
+              className={errors["Current Location"] ? "error-input" : ""}
+              {...register("Current Location", { required: true })}
+            />
+
+            <select
+              className={errors.Role ? "error-input" : ""}
+              {...register("Role", { required: true })}
+            >
+              <option value="">Select Role...</option>
+              <option value="Backend Developer">Backend Developer</option>
+              <option value="AI/ML Developer">AI/ML Developer</option>
+              <option value="Frontend Developer">Frontend Developer</option>
+              <option value="Full Stack Developer">Full Stack Developer</option>
+              <option value="Human Resources">Human Resources</option>
+              <option value="Digital Marketing">
+                Digital Marketing/Social Media/option
+              </option>
+              <option value="Finance/Accounting">Finance/Accounting</option>
+              <option value="Content Creation">Content Creation</option>
+            </select>
+
+            <label>
+              <input
+                type="checkbox"
+                className={errors.Terms ? "error-input" : ""}
+                {...register("Terms", { required: true })}
+              />
+              I accept the terms and conditions
+            </label>
+
+            <input type="submit" />
+            {successMessage && (
+              <Alert
+                message="Your Application is Submitted Successfully."
+                description="Our team members will contact you soon."
+                type="success"
+                showIcon
+              />
+            )}
+          </form>
+        </Spin>
+      </div>
     </div>
   );
 }
-
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-const useStyles = makeStyles((theme) => ({
-  form: {
-    maxWidth: 600,
-    margin: "auto",
-    padding: theme.spacing(3),
-    boxShadow: theme.shadows,
-    borderRadius: theme.shape.borderRadius * 2,
-    backgroundColor: theme.palette.background.paper,
-  },
-  formInput: {
-    borderRadius: theme.shape.borderRadius,
-    "& .MuiOutlinedInput-input": {
-      padding: theme.spacing(1.5),
-    },
-  },
-  formLabel: {
-    color: theme.palette.text.secondary,
-  },
-  formTitle: {
-    marginBottom: theme.spacing(3),
-    fontWeight: 600,
-  },
-  uploadButton: {
-    backgroundColor: theme.palette.primary.light,
-    color: theme.palette.primary.contrastText,
-    borderRadius: theme.shape.borderRadius,
-    "&:hover": {
-      backgroundColor: theme.palette.primary.main,
-    },
-  },
-  submitButton: {
-    borderRadius: theme.shape.borderRadius * 2,
-    height: 48,
-    fontSize: 16,
-    fontWeight: 600,
-  },
-  gridItem: {
-    padding: theme.spacing(1),
-  },
-}));
-
-const JobApplicationForm = () => {
-  const classes = useStyles();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    contact_no: "",
-    role: "",
-    resume_link: null,
-    current_location: "",
-  });
-
-  const [availablePositions, setAvailablePositions] = useState([
-    "Software Engineer",
-    "Product Manager",
-    "UI/UX Designer",
-    "Data Analyst",
-    "Marketing Specialist",
-  ]);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleFileChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.files });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!emailRegex.test(formData.email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
-    // Submit form data to server or perform desired action
-    console.log(formData);
-  };
-
-  return (
-    <Paper elevation={3} className={classes.form}>
-      <Typography variant="h4" className={classes.formTitle} color="black">
-        Open Position
-      </Typography>
-
-      <Grid container spacing={3}>
-        <Grid item xs={12} className={classes.gridItem}>
-          <TextField
-            label="Full Name"
-            name="fullName"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            fullWidth
-            className={classes.formInput}
-            InputProps={{
-              classes: {
-                input: classes.formInput,
-              },
-            }}
-            InputLabelProps={{
-              className: classes.formLabel,
-            }}
-          />
-        </Grid>
-
-        <Grid item xs={12} className={classes.gridItem}>
-          <TextField
-            label="Email"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            fullWidth
-            className={classes.formInput}
-            InputProps={{
-              classes: {
-                input: classes.formInput,
-              },
-            }}
-            InputLabelProps={{
-              className: classes.formLabel,
-            }}
-          />
-        </Grid>
-
-        <Grid item xs={12} className={classes.gridItem}>
-          <TextField
-            label="Phone Number"
-            name="phoneNumber"
-            value={formData.contact_no}
-            onChange={handleChange}
-            required
-            fullWidth
-            className={classes.formInput}
-            InputProps={{
-              classes: {
-                input: classes.formInput,
-              },
-            }}
-            InputLabelProps={{
-              className: classes.formLabel,
-            }}
-          />
-        </Grid>
-
-        <Grid item xs={12} sm={6} className={classes.gridItem}>
-          <FormControl fullWidth className={classes.formInput}>
-            <InputLabel id="job-position-label" className={classes.formLabel}>
-              Job Position
-            </InputLabel>
-            <Select
-              labelId="job-position-label"
-              id="jobPosition"
-              name="jobPosition"
-              value={formData.role}
-              onChange={handleChange}
-              required
-              className={classes.formInput}
-            >
-              <MenuItem value="">Select a position</MenuItem>
-              {availablePositions.map((position) => (
-                <MenuItem key={position} value={position}>
-                  {position}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </Grid>
-
-        <Grid item xs={12} sm={6} className={classes.gridItem}>
-          <FormControl fullWidth className={classes.formInput}>
-            <InputLabel id="location-label" className={classes.formLabel}>
-              Location
-            </InputLabel>
-            <Select
-              labelId="location-label"
-              id="location"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              required
-              className={classes.formInput}
-            ></Select>
-          </FormControl>
-        </Grid>
-
-        <Grid item xs={12} className={classes.gridItem}>
-          <TextField
-            label="Years of Experience"
-            name="yearsOfExperience"
-            type="number"
-            value={formData.yearsOfExperience}
-            onChange={handleChange}
-            fullWidth
-            className={classes.formInput}
-            InputProps={{
-              classes: {
-                input: classes.formInput,
-              },
-            }}
-            InputLabelProps={{
-              className: classes.formLabel,
-            }}
-          />
-        </Grid>
-
-        <Grid item xs={12} className={classes.gridItem}>
-          <TextField
-            label="Skills"
-            name="skills"
-            value={formData.skills}
-            onChange={handleChange}
-            multiline
-            rows={4}
-            fullWidth
-            className={classes.formInput}
-            InputProps={{
-              classes: {
-                input: classes.formInput,
-              },
-            }}
-            InputLabelProps={{
-              className: classes.formLabel,
-            }}
-          />
-        </Grid>
-
-        <Grid item xs={12} className={classes.gridItem}>
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            fullWidth
-            className={classes.submitButton}
-            onClick={handleSubmit}
-          >
-            Submit Application
-          </Button>
-        </Grid>
-      </Grid>
-    </Paper>
-  );
-};
-
-export default JobApplicationForm;

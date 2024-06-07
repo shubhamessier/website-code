@@ -2,8 +2,9 @@ import "./App.css";
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ThreeScene from "./Components/Background/ThreeScene";
-import Navbar from "./Components/NavbarPage/Navbar";
+import Navbar from "./Components/NavbarSection/Navbar";
 import Career from "./Components/CareersPage/Career";
+// import Footer from "./Components/FooterSection/Footer";
 
 function App() {
   useEffect(() => {
@@ -22,7 +23,9 @@ function App() {
       <Routes>
         <Route path="/" element={<ThreeScene />} />
         <Route path="/Career" element={<Career />} />
+        {/* <Route path="/About" element={<About />} /> */}
       </Routes>
+      {/* <Footer /> */}
     </Router>
   );
 }
