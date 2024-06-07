@@ -1,7 +1,10 @@
 import "./App.css";
 import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ThreeScene from "./Components/Background/ThreeScene";
-// import Home from "./Components/Home"
+import Navbar from "./Components/NavbarPage/Navbar";
+import Career from "./Components/CareersPage/Career";
+
 function App() {
   useEffect(() => {
     const handleContextMenu = (event) => {
@@ -12,10 +15,16 @@ function App() {
       document.removeEventListener("contextmenu", handleContextMenu);
     };
   }, []);
+
   return (
-    <div className="App">
-      <ThreeScene />
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<ThreeScene />} />
+        <Route path="/Career" element={<Career />} />
+      </Routes>
+    </Router>
   );
 }
+
 export default App;

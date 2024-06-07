@@ -16,11 +16,11 @@
 .bg-gray-800 {
   background: transparent;
   padding: 20px;
-  border-radius: 2xl;
+  border-radius: 12px;
 }
 
 .text-3xl {
-  font-size: 75px;
+  font-size: 3rem;
   font-weight: 500;
   margin-bottom: 30px;
   color: #fff;
@@ -28,7 +28,7 @@
 }
 
 .text-lg {
-  font-size: 18px;
+  font-size: 1.125rem;
   margin-bottom: 20px;
   text-align: left;
   color: #ccc;
@@ -39,10 +39,11 @@
   width: 70%;
   height: 100%;
   object-fit: cover;
-  border-radius: 2xl;
+  border-radius: 12px;
   margin-bottom: 40px;
   margin-left: 30px;
-  animation: fadeIn 2s ease-in-out;
+  animation: fadeIn 2s ease-in-out, slideInRight 1s ease-in-out; /* Added slideInRight animation */
+  transition: opacity 0.5s ease, transform 1s ease; /* Added transform transition */
 }
 
 @keyframes fadeIn {
@@ -54,5 +55,14 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

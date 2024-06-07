@@ -3,54 +3,65 @@
 * {
   z-index: 0;
 }
+
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   color: #fff;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out; /* Smooth transition */
 }
+
 .hero {
   position: relative;
+  margin-top: 50px;
   height: 70vh;
+  backdrop-filter: blur(15px);
   background-size: cover;
   text-align: left;
 }
+
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%;
+  width: 100%;
   height: 100%;
+  margin: 10px;
 }
+
 .hero-content {
   position: absolute;
   top: 30%;
   left: 5%;
   padding: 10px;
   margin-top: 5%;
-  backdrop-filter: blur(15px);
   transform: translateY(-50%);
-  max-height: 200px;
+  max-height: 180px;
   max-width: 700px;
-  opacity: 1; /* Add this line */
-  transition: opacity 0.5s ease-in-out; /* Add this line */
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
 }
+
 #child:hover {
   background-color: black;
   box-shadow: 2px 1px 2px 1px rgb(32, 175, 163);
   color: #1abfe8;
 }
+
 #child2:hover {
   background-color: rgba(32, 175, 163, 0.774);
   color: white;
   box-shadow: 2px 1px 2px 1px white;
 }
+
 #child {
   margin: 10px;
   background-color: rgba(32, 175, 163, 0.774);
   color: white;
   box-shadow: 2px 1px 2px 1px white;
 }
+
 #child2 {
   color: #1abfe8;
   background-color: black;
@@ -61,7 +72,7 @@ h1 {
   font-size: 3rem;
   font-weight: 600;
   font-family: "Poppins";
-  margin-bottom: 3px;
+  margin-bottom: 4px;
 }
 
 .primary {
@@ -83,3 +94,11 @@ h1 {
   align-items: left;
   height: 50vh;
 }
+
+.typewriter-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: none; /* Remove any border or cursor from the wrapper */
+}
+

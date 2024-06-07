@@ -53,7 +53,6 @@ const ThreeScene = () => {
       <Hero />
       <Count />
       <Image />
-      <Career />
 
       {/* <Contact /> */}
     </div>

@@ -81,18 +81,12 @@ const useStyles = makeStyles((theme) => ({
 const JobApplicationForm = () => {
   const classes = useStyles();
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     email: "",
-    phoneNumber: "",
-    jobPosition: "",
-    resume: null,
-    coverLetter: "",
-    location: "",
-    yearsOfExperience: "",
-    skills: "",
-    city: "",
-    state: "",
-    country: "",
+    contact_no: "",
+    role: "",
+    resume_link: null,
+    current_location: "",
   });
 
   const [availablePositions, setAvailablePositions] = useState([
@@ -132,7 +126,7 @@ const JobApplicationForm = () => {
           <TextField
             label="Full Name"
             name="fullName"
-            value={formData.fullName}
+            value={formData.name}
             onChange={handleChange}
             required
             fullWidth
@@ -173,7 +167,7 @@ const JobApplicationForm = () => {
           <TextField
             label="Phone Number"
             name="phoneNumber"
-            value={formData.phoneNumber}
+            value={formData.contact_no}
             onChange={handleChange}
             required
             fullWidth
@@ -198,7 +192,7 @@ const JobApplicationForm = () => {
               labelId="job-position-label"
               id="jobPosition"
               name="jobPosition"
-              value={formData.jobPosition}
+              value={formData.role}
               onChange={handleChange}
               required
               className={classes.formInput}
@@ -271,23 +265,6 @@ const JobApplicationForm = () => {
           />
         </Grid>
 
-        <Grid item xs={12} className={classes.gridItem}>
-          <Box mt={2}>
-            <Button
-              variant="contained"
-              component="label"
-              className={classes.uploadButton}
-            >
-              Upload Resume
-              <input
-                type="file"
-                name="resume"
-                onChange={handleFileChange}
-                hidden
-              />
-            </Button>
-          </Box>
-        </Grid>
         <Grid item xs={12} className={classes.gridItem}>
           <Button
             type="submit"
