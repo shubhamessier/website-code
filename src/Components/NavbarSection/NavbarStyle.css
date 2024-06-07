@@ -11,6 +11,9 @@
   top: 0;
   width: 100%;
   z-index: 100;
+  background: transparent; /* Set background to white */
+  color: rgb(0, 0, 0); /* Set text color to white */
+  padding: 0 1rem; /* Add some padding for spacing */
 }
 
 .navbar-container {
@@ -19,11 +22,9 @@
   height: 60px;
   z-index: 1;
   width: 100%;
-  max-width: auto;
+  max-width: 1200px; /* Set a max-width */
   position: fixed;
-  padding-left: 2.7rem;
-  padding-right: 1.6rem;
-  padding-top: 0.5rem;
+  padding: 0 1rem; /* Uniform padding */
   top: 0;
 }
 
@@ -35,12 +36,9 @@
   display: flex;
   align-items: center;
   list-style: none;
-  position: fixed;
-  top: 0;
-  background-color: black;
-  left: 70%;
   text-align: center;
-  padding-top: 10px;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
 }
 
 .nav-item {
@@ -48,18 +46,18 @@
 }
 
 .nav-links {
-  color: #fff;
+  color: white; /* Set text color to white */
   display: flex;
   align-items: center;
   text-decoration: none;
   padding: 0 1rem;
   height: 100%;
+  transition: background-color 0.2s ease-out; /* Simplify transition */
 }
 
 .nav-links:hover {
   background-color: #575757;
   border-radius: 4px;
-  transition: all 0.2s ease-out;
 }
 
 @media screen and (max-width: 768px) {
@@ -68,29 +66,24 @@
 
 .logo-container {
   position: absolute;
-  top: 20px;
-  left: 1px;
-  background-color: black;
-  z-index: 1000; /* Ensures the logo is on top of other elements */
+  top: 0;
+  left: 1rem; /* Adjust spacing */
+  z-index: 1000;
 }
 
 .logo-image {
-  width: 100px; /* Adjust size as needed */
-  height: auto; /* Maintains aspect ratio */
-  /* position: fixed;
-  top: 0;
-  left: 40%; */
+  width: 100px;
+  height: auto;
   display: block;
-  padding-top: 10px;
+  padding: 10px 0; /* Adjust padding */
   transition: transform 0.3s ease;
 }
 
 .logo-image:hover {
-  transform: scale(1.05); /* Slightly enlarges the logo on hover */
+  transform: scale(1.05);
 }
 
 .app-container {
-  position: relative; /* Add this to make absolute positioning of logo work */
-  padding-top: 60px; /* Add this to create space for the navbar */
-  /* ... existing styles ... */
+  position: relative;
+  padding-top: 60px; /* Ensure space for the navbar */
 }

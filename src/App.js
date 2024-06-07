@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ThreeScene from "./Components/Background/ThreeScene";
 import Navbar from "./Components/NavbarSection/Navbar";
 import Career from "./Components/CareersPage/Career";
+import About from "./Components/AboutPage/About";
 // import Footer from "./Components/FooterSection/Footer";
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ThreeScene />} />
         <Route path="/Career" element={<Career />} />
-        {/* <Route path="/About" element={<About />} /> */}
+        <Route path="/About" element={<About />} />
       </Routes>
       {/* <Footer /> */}
     </Router>
