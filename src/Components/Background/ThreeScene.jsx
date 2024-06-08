@@ -8,6 +8,7 @@ import Count from "../CountSection/Count";
 
 const ThreeScene = () => {
   const vantaRef = useRef(null);
+
   useEffect(() => {
     const vantaEffect = NET({
       el: vantaRef.current,
@@ -34,6 +35,13 @@ const ThreeScene = () => {
         height: "100vh",
         overflow: "auto",
         backgroundColor: "transparent",
+        /* Hide scrollbar for Chrome, Safari, and Opera */
+        "::-webkit-scrollbar": {
+          display: "none",
+        },
+        /* Hide scrollbar for IE, Edge, and Firefox */
+        "-ms-overflow-style": "none" /* IE and Edge */,
+        "scrollbar-width": "none" /* Firefox */,
       }}
     >
       <div
@@ -47,11 +55,9 @@ const ThreeScene = () => {
           zIndex: -1,
         }}
       />
-
       <Hero />
       <Count />
       <Image />
-
       {/* <Contact /> */}
     </div>
   );

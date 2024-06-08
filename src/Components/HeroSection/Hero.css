@@ -1,0 +1,23 @@
+.hero {
+  position: relative;
+  height: 100vh; /* Adjust height as needed */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Add opacity to overlay */
+}
+
+.hero-content {
+  max-width: 800px;
+  color: white; /* Set text color to white */
+}
+
+.hero-content h1,
+.hero-content p {
+  color: white; /* Set text color to white */
+}

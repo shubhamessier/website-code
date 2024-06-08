@@ -1,8 +1,7 @@
 import React from "react";
-import { Divider, Typography, Button } from "antd";
-import { GithubOutlined } from "@ant-design/icons";
+import { Divider, Typography, Button, Flex, Carousel } from "antd";
+
 import "./About.css";
-import { Carousel } from "antd";
 const { Title, Paragraph, Text, Link } = Typography;
 
 const contentstyle = {
@@ -70,29 +69,26 @@ const App = () => (
         outcome.
       </Title>
       <Paragraph className="about-us-text">
-        AntV has been used in more than 200,000 business systems of Alibaba
-        Group, serving millions of users every day. It has been tested and
-        verified in various harsh environments, and has become a reliable choice
-        for data visualization in the industry.
+        We're a small team of passionate people working together to make a dream
+        come true, a dream of making AI Safe and accessible for everyone. Our
+        motto is
       </Paragraph>
-      <Divider />
       <Title level={3} className="about-us-title">
-        Join Us
+        अन्ते सत्यं विजयते।
       </Title>
+      <Divider />
+
       <Paragraph className="about-us-text">
-        We are always looking for talented developers and designers to join our
-        team. If you are passionate about data visualization and have a strong
-        interest in open-source projects, please don't hesitate to contact us.
+        We are always looking for talented & stubborn individuals to join our
+        team. If you are passionate about our goal enough and have a strong
+        interest, you can visit our careers page.
       </Paragraph>
-      <Button
-        type="primary"
-        icon={<GithubOutlined />}
-        href="https://github.com/antvis/antv"
-        target="_blank"
-        className="about-us-button"
-      >
-        View on Github
-      </Button>
+
+      <Flex gap="small" wrap>
+        <Button type="primary" src="/Career" alignItems="center">
+          Careers
+        </Button>
+      </Flex>
     </div>
   </div>
 );

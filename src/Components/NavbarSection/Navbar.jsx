@@ -1,48 +1,31 @@
-import React, { useEffect, useState } from "react";
-import $ from "jquery";
-import logoImage from "./AntiAilogo.png";
+import React from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./NavbarStyle.css";
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleNavbar = () => {
-    setIsOpen(!isOpen);
-  };
+
+const MyNavbar = () => {
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        <div className="navbar-logo">
-          <img src={logoImage} alt="Company Logo" className="logo-image" />
-        </div>
-        <div
-          className={`menu-icon ${isOpen ? "active" : ""}`}
-          onClick={toggleNavbar}
-        >
-          <i className={`fas ${isOpen ? "fa-times" : "fa-bars"}`}></i>
-        </div>
-        <ul className={`nav-menu ${isOpen ? "active" : ""}`}>
-          <li className="nav-item">
-            <a href="/" className="nav-links">
-              Home
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="/about" className="nav-links">
-              About
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="/services" className="nav-links">
-              Projects
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="/contact" className="nav-links">
-              Contact
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <Navbar expand="lg" className="custom-navbar">
+      <Container>
+        <Navbar.Brand>
+          <img
+            src="public/AntiAilogo.png"
+            alt="Logo"
+            className="d-inline-block align-top logo"
+          />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ml-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#about">About</Nav.Link>
+            <Nav.Link href="#services">Careers</Nav.Link>
+            <Nav.Link href="#contact">Contact Us</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
-export default Navbar;
+
+export default MyNavbar;

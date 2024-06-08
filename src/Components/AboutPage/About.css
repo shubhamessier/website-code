@@ -18,17 +18,6 @@
   margin-right: 50px;
 }
 
-@media (max-width: 768px) {
-  .about-us-container {
-    flex-direction: column;
-  }
-
-  .about-us-content {
-    max-width: 100%;
-    margin-right: 0;
-  }
-}
-
 .about-us-title {
   font-size: 2.5rem;
   color: #000000;

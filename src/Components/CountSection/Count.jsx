@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Col, Row, Statistic } from "antd";
 import CountUp from "react-countup";
+import "./Count.css";
 import { useInView } from "react-intersection-observer";
 
 const formatter = (value) => <CountUp end={value} separator="," duration={4} />; // Increase duration to slow down counter

@@ -1,89 +1,26 @@
-* {
-  z-index: 3;
+.custom-navbar {
+  backdrop-filter: blur(15px); /* Apply blur effect */
+  -webkit-backdrop-filter: blur(15px); /* Safari support */
+  background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+  height: 15vh;
+  border-radius: 10px; /* Rounded corners */
+  border: 1px solid rgba(0, 0, 0, 0.18); /* Border to enhance glass effect */
 }
 
-.navbar {
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-  background: transparent; /* Set background to white */
-  color: rgb(0, 0, 0); /* Set text color to white */
-  padding: 0 1rem; /* Add some padding for spacing */
-}
-
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  height: 60px;
-  z-index: 1;
-  width: 100%;
-  max-width: 1200px; /* Set a max-width */
-  position: fixed;
-  padding: 0 1rem; /* Uniform padding */
-  top: 0;
-}
-
-.menu-icon {
-  display: none;
-}
-
-.nav-menu {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  text-align: center;
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-}
-
-.nav-item {
-  height: 60px;
-}
-
-.nav-links {
-  color: white; /* Set text color to white */
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 0 1rem;
-  height: 100%;
-  transition: background-color 0.2s ease-out; /* Simplify transition */
-}
-
-.nav-links:hover {
-  background-color: #575757;
-  border-radius: 4px;
-}
-
-@media screen and (max-width: 768px) {
-  /* ... existing media query styles ... */
-}
-
-.logo-container {
-  position: absolute;
-  top: 0;
-  left: 1rem; /* Adjust spacing */
-  z-index: 1000;
-}
-
-.logo-image {
-  width: 100px;
+.logo {
+  width: 50px;
   height: auto;
-  display: block;
-  padding: 10px 0; /* Adjust padding */
-  transition: transform 0.3s ease;
 }
 
-.logo-image:hover {
-  transform: scale(1.05);
+.navbar-nav {
+  margin-left: auto;
 }
 
-.app-container {
-  position: relative;
-  padding-top: 60px; /* Ensure space for the navbar */
+.nav-link {
+  margin-right: 15px;
+  color: #ffffff;
+}
+
+.nav-link:hover {
+  color: #007bff;
 }
