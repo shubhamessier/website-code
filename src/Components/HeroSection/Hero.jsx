@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Typewriter } from "react-simple-typewriter";
-import "./Hero.css"
+import "./Hero.css"; // Import CSS file
 
 const HeroSection = () => {
   const heroContentRef = useRef(null);
@@ -50,11 +50,9 @@ const HeroSection = () => {
           </h1>
           <p>
             We're An Innovative Software Company. Protecting Humanity from the{" "}
-          </p>
-          <p>
             uncontrolled rise of Artificial Intelligence, Safeguarding people
+            across the globe through our Innovative Software solutions.
           </p>
-          <p>across the globe through our Innovative Software solutions.</p>
         </div>
       </section>
     </div>
