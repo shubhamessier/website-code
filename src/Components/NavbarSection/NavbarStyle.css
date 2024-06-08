@@ -2,7 +2,7 @@
   backdrop-filter: blur(15px); /* Apply blur effect */
   -webkit-backdrop-filter: blur(15px); /* Safari support */
   background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
-  height: 15vh;
+  height: 10vh;
   border-radius: 10px; /* Rounded corners */
   border: 1px solid rgba(0, 0, 0, 0.18); /* Border to enhance glass effect */
 }
