@@ -2,7 +2,7 @@
 
 * {
   color: white;
-  box-sizing: border-box; /* Ensure padding and border do not affect element's width and height */
+  box-sizing: border-box;
 }
 
 body {
@@ -10,12 +10,12 @@ body {
   margin: 0;
   padding: 0;
   color: #fff;
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out; /* Smooth transition */
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 .hero {
   position: relative;
-  margin: 50px 0 0 0; /* Top margin of 50px */
+  margin: 50px 0 0 0;
   height: 70vh;
   background-size: cover;
   text-align: left;
@@ -27,8 +27,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  margin: 0; /* Remove margin to ensure full coverage */
-  padding: 10px; /* Added padding for spacing inside the overlay */
+  margin: 0;
+  padding: 10px;
 }
 
 .hero-content {
@@ -36,38 +36,30 @@ body {
   top: 50%;
   left: 5%;
   transform: translateY(-50%);
-  padding: 10px 20px; /* Adjust padding for better spacing */
-  color: white;
+  padding: 10px 20px;
   max-width: 700px;
   opacity: 1;
-  transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
+  transition: opacity 0.5s ease-in-out;
 }
 
 #child:hover,
 #child2:hover {
-  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2); /* Adjusted shadow for more subtle effect */
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
 }
 
-#child {
-  margin: 10px;
-  padding: 15px;
-  background-color: transparent; /* Removed background */
-  color: white; /* Set text color to white */
-  box-shadow: 2px 2px 5px 1px white;
-}
-
+#child,
 #child2 {
   margin: 10px;
   padding: 15px;
-  background-color: transparent; /* Removed background */
-  color: white; /* Set text color to white */
-  box-shadow: 2px 2px 5px 1px rgb(32, 175, 163);
+  background-color: transparent;
+  color: white;
+  box-shadow: 2px 2px 5px 1px white;
 }
 
 h1 {
   font-size: 3rem;
   font-weight: 600;
-  margin: 0 0 20px 0; /* Adjusted margin for spacing around heading */
+  margin: 0 0 20px 0;
   color: white;
 }
 
@@ -75,23 +67,23 @@ h1 {
   background-color: #1a73e8;
   color: white;
   border: none;
-  padding: 10px 20px; /* Added padding for button spacing */
-  margin: 5px; /* Added margin for spacing around button */
+  padding: 10px 20px;
+  margin: 5px;
 }
 
 .secondary {
-  background-color: transparent; /* Set background to transparent */
+  background-color: transparent;
   color: white;
   border: 1px solid #ccc;
-  padding: 10px 20px; /* Added padding for button spacing */
-  margin: 5px; /* Added margin for spacing around button */
+  padding: 10px 20px;
+  margin: 5px;
 }
 
 .app-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Changed to flex-start for top alignment */
-  padding: 20px; /* Added padding for internal spacing */
+  align-items: flex-start;
+  padding: 20px;
   height: 50vh;
   border-radius: 10px;
 }
@@ -100,6 +92,6 @@ h1 {
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
-  border-right: none; /* Remove any border or cursor from the wrapper */
-  padding: 5px; /* Added padding for internal spacing */
+  border-right: none;
+  padding: 5px;
 }

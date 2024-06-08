@@ -4,25 +4,17 @@ import CountUp from "react-countup";
 import "./Count.css";
 import { useInView } from "react-intersection-observer";
 
-const formatter = (value) => <CountUp end={value} separator="," duration={4} />; // Increase duration to slow down counter
-
-const glassThemeContainer = {
-  backgroundColor: "rgba(255, 255, 255, 0.2)", // Transparent background with opacity
-  backdropFilter: "blur(10px)", // Blurred edges
-  padding: "20px", // Added top margin
-  borderRadius: "8px",
-  textAlign: "center",
-};
+const formatter = (value) => <CountUp end={value} separator="," duration={4} />;
 
 const titleStyle = {
-  fontSize: "24px", // Changed font size
+  fontSize: "24px",
   marginBottom: "10px",
-  color: "#fff", // White text color
+  color: "white", // Changed to white
 };
 
 const valueStyle = {
-  fontSize: "48px", // Changed font size
-  color: "#fff", // White text color
+  fontSize: "48px",
+  color: "#fff",
 };
 
 const AnimatedStatistic = ({ title, value, precision }) => {
@@ -50,7 +42,7 @@ const AnimatedStatistic = ({ title, value, precision }) => {
         value={value}
         precision={precision}
         formatter={formatter}
-        style={glassThemeContainer}
+        style={{ textAlign: "center", padding: "20px", borderRadius: "8px" }}
         titleStyle={titleStyle}
         valueStyle={valueStyle}
       />
@@ -65,7 +57,7 @@ const App = () => (
         title="AI Companies in Market"
         value={12579}
         formatter={formatter}
-        style={glassThemeContainer}
+        style={{ textAlign: "center", padding: "20px", borderRadius: "8px" }}
         titleStyle={titleStyle}
         valueStyle={valueStyle}
       />

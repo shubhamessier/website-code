@@ -27,7 +27,8 @@
 
 .hero-content h1,
 .hero-content p {
-  color: white; /* Set text color to white */
+  color: white;
+  margin: 2px; /* Set text color to white */
 }
 
 .hero-container {
@@ -55,5 +56,5 @@
 }
 
 h1 {
-  margin-top: 5px;
+  margin: 0;
 }
