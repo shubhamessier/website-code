@@ -1,91 +1,80 @@
-.form-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    margin-right: 15px;
-    margin-left: 15px;
+.contact-form{
+  padding: 0 3rem 0 3rem;
+  display: flex;
+  height: 80vh;
+  margin-top: 4rem;
+    /* scroll */
+padding-top: 3rem;
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.c-left{
+  text-align: center !important;
+  padding-top: 25px;
+  color: white !important;
 }
 
-.result-message {
-  animation: fadeIn 0.5s ease-in-out;
+.c-right{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  flex: 1;
 }
 
-
-.c-left {
-    text-align: center !important;
-    padding-top: 25px;
-    color: white !important;
+.c-right>form
+{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  
 }
 
-.c-right {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    flex: 1;
+.c-right .user{
+  width: 24rem;
+  height: 3rem;
+  padding: 0.3em;
+  outline: none;
+  border: 2px solid #40008a;
+  border-radius: 8px;
+  font-size: 19px;
+  color: white   
 }
 
-.c-right > form {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
+.c-right .user:hover{
+  box-shadow: 0 0 9px #7500fa;
 }
 
-.c-right .user {
-    width: 24rem;
-    height: 3rem;
-    padding: 0.3em;
-    outline: none;
-    border: 2px solid #40008a;
-    border-radius: 8px;
-    font-size: 19px;
-    color: white   
+input{
+  background-color: var(--purple)
+}
+textarea{
+  height: 5rem!important;
+  background-color: var(--purple)
 }
 
-.c-right .user:hover {
-    box-shadow: 0 0 9px #7500fa;
+.done{
+  font-size: 19px;
+  color: green;
 }
-.yellow{
-  color: rgb(34, 142, 250);
-}
-
-input {
-    background-color: var(--purple)
+.not-done{
+  font-size: 19px;
+  color: red;
 }
 
-textarea {
-    height: 5rem!important;
-    background-color: var(--purple)
-}
-
-.done {
-    font-size: 19px;
-    color: green;
-}
-
-.not-done {
-    font-size: 19px;
-    color: red;
+.c-blur1{
+  top: 1rem;
+  left: 8rem;
 }
 
 @media screen and (max-width: 480px) {
-    .form-container {
-        padding: 0;
-        flex-direction: column;
-        gap: 5rem;
-        height: 40rem;
-    }
-    .c-right .user {
-        width: 16rem;
-    }
+  .contact-form{
+      padding: 0;
+      flex-direction: column;
+      gap: 5rem;
+      height: 40rem;
+  }
+  .c-right .user{
+      width: 16rem;
+  }
+
 }
