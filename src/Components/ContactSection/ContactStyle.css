@@ -1,66 +1,91 @@
 .form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  background-color: rgba(
-    245,
-    245,
-    245,
-    0.5
-  ); /* Set the background color to semi-transparent */
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin-right: 15px;
+    margin-left: 15px;
 }
 
-.form-title {
-  margin-bottom: 1.5rem;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-.form-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 400px;
+.result-message {
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-.form-field {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1.5rem;
+
+.c-left {
+    text-align: center !important;
+    padding-top: 25px;
+    color: white !important;
 }
 
-.label {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+.c-right {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    flex: 1;
 }
 
-.input {
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
+.c-right > form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
 }
 
-.textarea {
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-  resize: vertical;
+.c-right .user {
+    width: 24rem;
+    height: 3rem;
+    padding: 0.3em;
+    outline: none;
+    border: 2px solid #40008a;
+    border-radius: 8px;
+    font-size: 19px;
+    color: white   
 }
 
-.submit-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.c-right .user:hover {
+    box-shadow: 0 0 9px #7500fa;
+}
+.yellow{
+  color: rgb(34, 142, 250);
 }
 
-.submit-button:hover {
-  background-color: #0056b3;
+input {
+    background-color: var(--purple)
+}
+
+textarea {
+    height: 5rem!important;
+    background-color: var(--purple)
+}
+
+.done {
+    font-size: 19px;
+    color: green;
+}
+
+.not-done {
+    font-size: 19px;
+    color: red;
+}
+
+@media screen and (max-width: 480px) {
+    .form-container {
+        padding: 0;
+        flex-direction: column;
+        gap: 5rem;
+        height: 40rem;
+    }
+    .c-right .user {
+        width: 16rem;
+    }
 }

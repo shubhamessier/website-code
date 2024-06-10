@@ -6,6 +6,7 @@ import Navbar from "./Components/NavbarSection/Navbar";
 import Career from "./Components/CareersPage/Career";
 import About from "./Components/AboutPage/About";
 import Footer from "./Components/FooterSection/Footer";
+import Contact from "./Components/ContactSection/Contact";
 
 function App() {
   useEffect(() => {
@@ -24,6 +25,7 @@ function App() {
       <Routes>
         <Route path="/home" element={<ThreeScene />} />
         <Route path="/Career" element={<Career />} />
+        <Route path="/Contact" element={<Contact />} />
         <Route path="/About" element={<About />} />
       </Routes>
       <Footer />
