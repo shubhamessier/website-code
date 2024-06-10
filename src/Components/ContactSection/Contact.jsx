@@ -1,70 +1,76 @@
-import React,{useState, useRef} from 'react'
-import emailjs from "@emailjs/browser";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useState } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
-import './ContactStyle.css'
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+import './ContactStyle.css';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const Contact = () => {
-    const form = useRef();
-    const [done, setDone] = useState(false)
-    const [notDone, setNotDone] = useState(false)
-    const [formData, setFormData] = useState({});
+  const [result, setResult] = useState('');
+  const [open, setOpen] = useState(false);
 
-    const handleChange = (e) => {
-        setFormData({...formData, [e.target.name] : e.target.value})
-        setDone(false)
-        setNotDone(false)
-    }
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult('Sending....');
 
-    const sendEmail = (e) => {
-    e.preventDefault();
-    
-    if(!formData.from_name || !formData.reply_to ||!formData.message){
-      setNotDone(true)
+    const formData = new FormData(event.target);
+    formData.append('access_key', '9c4b7f4a-ba63-4774-9143-a9ec643696c7');
+
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult('Form Submitted Successfully');
+      setOpen(true);
+      event.target.reset();
     } else {
-      
-      //  Please use your own credentials from emailjs or i will recive your email
-      
-    emailjs
-      .sendForm(
-        "service_niilndo",
-        "template_6z5idye",
-        form.current,
-        "VOBt6Akm1LhI5CZG-"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          setDone(true);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+      console.log('Error', data);
+      setResult(data.message);
     }
-    };
-    
+  };
 
-    return(
-        <Container style={{paddingTop: '50px'}} >
-            <Row >
-            <Col md={6} className="c-left" >
-            <h1 >Get in Touch</h1>
-            <h1 className="yellow">Contact me</h1>
-            </Col>
-            <Col md={6} className="c-right">
-                <form ref={form} onSubmit={sendEmail}>
-                <input type="text" name="from_name" className="user"  placeholder="Name" onChange={handleChange}/>
-                <input type="email" name="reply_to" className="user" placeholder="Email" onChange={handleChange} />
-                <textarea name="message" className="user" placeholder="Message" onChange={handleChange} />
-                <span className='not-done' >{notDone && "Please, fill all the input field"}</span>
-                <Button type="submit" className="button" disabled={done}>Send</Button>
-                <span className='done'>{done && "Thanks for contacting me and be sure i have recieved your mail. If you are testing this functionality then i am confirming this thing working perfectly fine. If you have any serious query then i will reply. Also if you need me, you can conatct me on Linkedin."}</span>
-                </form>
-            </Col>
-            </Row>
-        </Container>
-    )
-}
+  const handleClose = () => {
+    setOpen(false);
+  };
 
-export default Contact
+  return (
+    <Container style={{ paddingTop: '50px' }}>
+      <Row>
+        <Col md={6} className="c-left">
+          <h1>Get in Touch</h1>
+          <h1 className="yellow">Contact Us</h1>
+        </Col>
+        <Col md={6} className="c-right">
+          <form onSubmit={onSubmit}>
+            <input type="text" name="name" className="user" placeholder="Name" required />
+            <input type="email" name="email" className="user" placeholder="Email" required />
+            <textarea name="message" className="user" placeholder="Message" required />
+            <Button type="submit" className="button">
+              Send
+            </Button>
+          </form>
+        </Col>
+      </Row>
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        <Alert onClose={handleClose} severity="success" sx={{ backgroundColor: '#2196F3' }}>
+          Form submitted successfully!
+        </Alert>
+      </Snackbar>
+    </Container>
+  );
+};
+
+export default Contact;
