@@ -1,7 +1,8 @@
 body {
   font-family: Arial, sans-serif;
   text-align: left;
-  background-color: #f4f4f9;
+  background-color: #1e1e1e; /* Dark background */
+  color: #eee; /* Light text color */
   margin: 0;
   padding-left: 30px;
   margin-left: -30px;
@@ -18,19 +19,20 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f5f5f5;
+  background-color: rgba(255, 255, 255, 0.15); /* Glassmorphism background */
+  backdrop-filter: blur(10px); /* Glassmorphism blur effect */
   padding: 30px;
   margin: 30px;
   margin-top: 80px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Darker shadow */
   max-width: 550px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 form:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Darker shadow on hover */
 }
 
 input[type="text"],
@@ -41,11 +43,16 @@ select {
   width: 100%;
   padding: 20px;
   margin: 15px 0;
-  border: 1px solid #ddd;
+  border: 1px solid #555; /* Darker border */
   border-radius: 10px;
   box-sizing: border-box;
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Glassmorphism input background */
+  color: #eee;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -55,7 +62,7 @@ input[type="tel"]:focus,
 input[type="url"]:focus,
 select:focus {
   border-color: #007aff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0, 122, 255, 0.5); /* Lighter shadow on focus */
   outline: none;
 }
 
@@ -67,7 +74,7 @@ input[type="submit"] {
   border-radius: 10px;
   cursor: pointer;
   background-color: #007aff;
-  color: #fff;
+  color: #eee;
   font-weight: bold;
   text-transform: uppercase;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -75,7 +82,7 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #005fa3;
-  color: #fff;
+  color: #ddd;
 }
 
 input[type="checkbox"] {
@@ -85,66 +92,70 @@ input[type="checkbox"] {
 label {
   display: flex;
   align-items: center;
-  color: #333;
+  color: #eee; /* Light label text color */
   font-weight: bold;
   margin-top: 15px;
 }
 
 h1 {
-  color: #333;
+  color: #eee; /* Light heading text color */
   text-align: left;
   font-size: 3.5em;
   margin-top: 3rem;
   margin-bottom: 30px;
-  font-weight: bold;
 }
 
 p {
-  color: #555;
+  color: #ccc; /* Lighter paragraph text color */
   font-size: 1em;
   margin-bottom: 20px;
   max-width: 500px;
   text-align: left;
 }
+
+li {
+  color: #ccc; /* Lighter list item text color */
+}
 ul {
-  color: #555;
+  color: #ccc; /* Lighter list text color */
   font-size: 1em;
   list-style-type: disc;
-
   padding-left: 5px;
   margin-bottom: 20px;
   max-width: 500px;
   text-align: left;
 }
 
-/* .error {
-    color: #ff6666;
-    font-size: 0.9em;
-    margin-top: -15px;
-    margin-bottom: 15px;
-  } */
-
 .error-input {
   border-color: #ff6666;
   box-shadow: 0 0 5px rgba(255, 24, 24, 0.5);
 }
 
-.container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 30px;
+.captcha-container {
+  margin-top: 15px;
+  text-align: left; /* Align the captcha container and question to the left */
 }
 
-.text-container {
-  flex: 1;
+@media screen and (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 30px;
+  }
 
-  padding-right: 30px;
-  padding-top: 20px;
-  padding-left: 30px;
+  .text-container {
+    flex: 1;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-left: 30px;
+  }
+
+  .form-container {
+    flex: 1;
+    padding-right: 10px;
+  }
 }
 
-.form-container {
-  flex: 1;
-  padding-right: 10px;
+option {
+  background-color: #333;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Divider, Typography, Button, Flex, Carousel } from "antd";
+// import Cards from "../Cards/CardsPage";
 
 import "./About.css";
 const { Title, Paragraph, Text, Link } = Typography;
@@ -17,6 +18,7 @@ const contentstyle = {
 const App = () => (
   <div className="about-us-container">
     <div className="about-us-content">
+      {/* <Cards /> */}
       <Title level={1} className="about-us-title">
         About Us
       </Title>

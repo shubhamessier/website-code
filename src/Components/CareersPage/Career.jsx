@@ -1,23 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Alert, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import { useForm } from "react-hook-form";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 import "./Career.css";
+
+const generateCaptcha = () => {
+  const operations = [
+    { symbol: "+", method: (a, b) => a + b },
+    { symbol: "x", method: (a, b) => a * b },
+  ];
+  const a = Math.floor(Math.random() * 10);
+  const b = Math.floor(Math.random() * 10);
+  const operation = operations[Math.floor(Math.random() * operations.length)];
+
+  return {
+    question: `${a} ${operation.symbol} ${b}`,
+    answer: operation.method(a, b).toString(),
+  };
+};
 
 export default function App() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    // setValue,
     reset,
   } = useForm();
-
   const [successMessage, setSuccessMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [captcha, setCaptcha] = useState(generateCaptcha());
+  const [captchaInput, setCaptchaInput] = useState("");
+
+  useEffect(() => {
+    setCaptcha(generateCaptcha());
+  }, []);
 
   const onSubmit = async (data) => {
+    if (captchaInput !== captcha.answer) {
+      alert("Incorrect CAPTCHA answer. Please try again.");
+      setCaptcha(generateCaptcha());
+      return;
+    }
+
     setLoading(true);
     const formData = {
       name: data["First name"],
@@ -44,6 +70,7 @@ export default function App() {
         setSuccessMessage("Form submitted successfully!");
         console.log("Data sent successfully");
         reset(); // Clear the form data
+        setCaptcha(generateCaptcha()); // Generate new captcha
       } else {
         console.error("Error sending data");
       }
@@ -63,18 +90,21 @@ export default function App() {
           disciplines and backgrounds. You are an ideal candidate if:
         </p>
         <ul>
-          <li>Passionate about technology and its impact on society.</li>
           <li>
-            Strong problem-solving skills and ability to think creatively.
+            You are Passionate about technology and its impact on society.
           </li>
-          <li>Not bound by any technical stack.</li>
-          <li>Belive Hacking is a beautiful art.</li>
-          <li>Are a Nerd.</li>
           <li>
-            Familiar with either Machine learning/Artificial Intelligence or
-            Full Stack Web Devlopment.
+            You have Strong problem-solving skills and ability to think
+            creatively.
           </li>
-          <li>You love solving challenges, problems.</li>
+          <li>You are Not bound by any technical stack.</li>
+          <li>You Believe hacking is a beautiful art.</li>
+          <li>You Are a nerd.</li>
+          <li>
+            You are Familiar with either Machine learning/Artificial
+            Intelligence or Full Stack Web Development.
+          </li>
+          <li>You love solving challenges and problems.</li>
         </ul>
       </div>
       <div className="form-container">
@@ -133,11 +163,22 @@ export default function App() {
               <option value="Full Stack Developer">Full Stack Developer</option>
               <option value="Human Resources">Human Resources</option>
               <option value="Digital Marketing">
-                Digital Marketing/Social Media/option
+                Digital Marketing/Social Media
               </option>
               <option value="Finance/Accounting">Finance/Accounting</option>
               <option value="Content Creation">Content Creation</option>
             </select>
+
+            <div className="captcha-container">
+              <label>What is {captcha.question}?</label>
+              <input
+                type="text"
+                value={captchaInput}
+                onChange={(e) => setCaptchaInput(e.target.value)}
+                placeholder="Enter the answer"
+                className={errors.Captcha ? "error-input" : ""}
+              />
+            </div>
 
             <label>
               <input

@@ -8,19 +8,15 @@ const MyNavbar = () => {
     <Navbar expand="lg" className="custom-navbar">
       <Container>
         <Navbar.Brand>
-          <img
-            src="public/AntiAilogo.png"
-            alt="Logo"
-            className="d-inline-block align-top logo"
-          />
+          <b>Anti.AI</b>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
-            <Nav.Link href="#services">Careers</Nav.Link>
-            <Nav.Link href="#contact">Contact Us</Nav.Link>
+            <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/career">Careers</Nav.Link>
+            <Nav.Link href="/contact">Contact Us</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
