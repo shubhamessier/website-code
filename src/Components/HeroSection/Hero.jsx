@@ -57,6 +57,9 @@ const HeroSection = () => {
               uncontrolled rise of Artificial Intelligence, Safeguarding people
               across the globe through our Innovative Software solutions.
             </p>
+            <button className="apple-button">
+              <a href="/about">See More</a>
+            </button>
             {/* <p>
               <Button className="custom-button">See More</Button>
             </p> */}

@@ -6,6 +6,10 @@ import { motion, useScroll, useSpring } from "framer-motion";
 
 import "./Career.css";
 
+
+<style>
+
+</style>
 const generateCaptcha = () => {
   const operations = [
     { symbol: "+", method: (a, b) => a + b },

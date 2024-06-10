@@ -32,39 +32,7 @@ const App = () => (
         We believe that humanity should benefit from AI, and we're developing
         our own first-in-class Anti AI software to ensure safe usage.
       </Paragraph>
-      <Carousel effect="fade">
-        <div>
-          <img
-            src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Image 1"
-            style={{ contentstyle }}
-          />
-        </div>
-        <div>
-          <img
-            class="contentstyle"
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Image 2"
-            style={{ contentstyle }}
-          />
-        </div>
-        <div>
-          <img
-            class="contentstyle"
-            src="https://images.unsplash.com/photo-1531539427495-97c44a449837?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Image 3"
-            style={{ contentstyle }}
-          />
-        </div>
-        <div>
-          <img
-            class="contentstyle"
-            src="https://images.unsplash.com/photo-1565350897149-38dfafa81d83?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTU4fHx0ZWFtfGVufDB8MHwwfHx8MA%3D%3D"
-            alt="Image 4"
-            style={{ contentstyle }}
-          />
-        </div>
-      </Carousel>
+
       <Title className="about-us-title">
         We are building safe and smart soultions against AGI, but will also
         consider our mission fulfilled if our work aids others to achieve this

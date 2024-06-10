@@ -60,19 +60,23 @@ h1 {
 p {
   padding-bottom: 8px;
 }
+.apple-button {
+  background-color: transparent;
 
-.custom-button {
-  background: transparent;
-  color: rgb(0, 0, 0);
-  border: 2px solid black;
+  backdrop-filter: blur(40px);
+
+  color: #ffffff;
+  border: #ffffff;
+  border-radius: 25px;
   padding: 10px 20px;
-  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease,
-    border-color 0.3s ease;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  outline: none;
 }
 
-.custom-button:hover {
-  background-color: white;
-  color: blue; /* Change text color to blue on hover */
+.apple-button:hover {
+  color: #007bff; /* Blue color */
+  border-color: #007bff;
 }
