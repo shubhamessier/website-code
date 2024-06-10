@@ -1,9 +1,9 @@
 import React from "react";
-import { Divider, Typography, Button, Flex, Carousel } from "antd";
+import { Divider, Typography, Carousel } from "antd";
 // import Cards from "../Cards/CardsPage";
 
 import "./About.css";
-const { Title, Paragraph, Text, Link } = Typography;
+const { Title, Paragraph } = Typography;
 
 const contentstyle = {
   display: "flex", // Use flexbox to center the image
@@ -85,12 +85,6 @@ const App = () => (
         team. If you are passionate about our goal enough and have a strong
         interest, you can visit our careers page.
       </Paragraph>
-
-      <Flex gap="small" wrap>
-        <Button type="primary" src="/Career" alignItems="center">
-          Careers
-        </Button>
-      </Flex>
     </div>
   </div>
 );

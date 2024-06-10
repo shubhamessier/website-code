@@ -1,5 +1,6 @@
 .custom-navbar {
   backdrop-filter: blur(15px); /* Apply blur effect */
+  position: sticky;
   -webkit-backdrop-filter: blur(15px); /* Safari support */
   background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
   height: 10vh;

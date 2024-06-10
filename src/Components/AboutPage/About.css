@@ -4,43 +4,44 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: clamp(2rem, 5vw, 50px); /* Adjust as needed */
   max-width: 1200px;
   text-align: center;
-  padding: 20px;
+  padding: clamp(1rem, 3vw, 20px); /* Adjust as needed */
   box-sizing: border-box;
   background-color: #ffffff;
 }
 
 .about-us-content {
   flex: 1;
-  max-width: 600px;
-  margin-right: 50px;
+  max-width: clamp(300px, 50%, 600px); /* Adjust as needed */
+  margin-right: clamp(1rem, 5%, 50px); /* Adjust as needed */
+  margin-bottom: 5px;
 }
 
 .about-us-title {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 3rem); /* Adjust as needed */
   color: #000000;
-  padding: 30px;
+  font-weight: 600px;
+  padding: clamp(1rem, 3vw, 30px); /* Adjust as needed */
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: clamp(1rem, 3vw, 20px); /* Adjust as needed */
   font-weight: bold;
 }
 
 .about-us-text {
-  font-size: 1.1rem;
-  color: #333333;
-
-  margin-bottom: 20px;
-  padding: 10px;
+  font-size: clamp(0.9rem, 2vw, 1.1rem); /* Adjust as needed */
+  color: #000000;
+  margin-bottom: clamp(1rem, 2vw, 20px); /* Adjust as needed */
+  padding: clamp(0.5rem, 1vw, 10px); /* Adjust as needed */
   line-height: 1.5;
 }
 
 .about-us-link {
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2vw, 1.1rem); /* Adjust as needed */
   color: #007bff;
   text-decoration: none;
-  margin-right: 20px;
+  margin-right: clamp(0.5rem, 1.5vw, 20px); /* Adjust as needed */
   transition: all 0.3s ease-in-out;
 }
 
@@ -49,18 +50,12 @@
 }
 
 .about-us-button {
-  font-size: 1.1rem;
-  margin-top: 20px;
+  font-size: clamp(0.9rem, 2vw, 1.1rem); /* Adjust as needed */
+  margin-top: clamp(1rem, 3vw, 20px); /* Adjust as needed */
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: clamp(0.5rem, 1vw, 10px) clamp(1rem, 2vw, 20px); /* Adjust as needed */
   border: none;
   background-color: #007bff;
   color: #ffffff;
   transition: all 0.3s ease-in-out;
-}
-
-.about-us-button:hover {
-  background-color: #0069d9;
-  border-color: #0062cc;
-  box-shadow: none;
 }

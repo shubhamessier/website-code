@@ -32,13 +32,22 @@ const CustomFooter = () => (
             <Title level={4} style={{ color: "white" }}>
               Company
             </Title>
-            <Text style={{ color: "white" }}>About Us</Text>
+
+            <Text style={{ color: "white" }}>
+              <a href="/about">About Us</a>
+            </Text>
             <br />
-            <Text style={{ color: "white" }}>Careers</Text>
+            <Text style={{ color: "white" }}>
+              <a href="/career">Careers</a>
+            </Text>
             <br />
-            <Text style={{ color: "white" }}>Blog</Text>
+            <Text style={{ color: "white" }}>
+              <a href="/home">Home</a>
+            </Text>
             <br />
-            <Text style={{ color: "white" }}>Contact Us</Text>
+            <Text style={{ color: "white" }}>
+              <a href="/contact">Contact Us</a>
+            </Text>
             <br />
           </Col>
           <Col span={12}>
@@ -46,18 +55,16 @@ const CustomFooter = () => (
               Follow Us
             </Title>
             <Space size="middle">
-              <Link href="https://www.facebook.com" target="_blank">
-                <FacebookFilled style={{ fontSize: "24px", color: "white" }} />
-              </Link>
-              <Link href="https://www.twitter.com" target="_blank">
-                <TwitterCircleFilled
-                  style={{ fontSize: "24px", color: "white" }}
-                />
-              </Link>
-              <Link href="https://www.instagram.com" target="_blank">
+              <Link
+                href="https://www.instagram.com/antiai.ltd/"
+                target="_blank"
+              >
                 <InstagramFilled style={{ fontSize: "24px", color: "white" }} />
               </Link>
-              <Link href="https://www.linkedin.com" target="_blank">
+              <Link
+                href="https://www.linkedin.com/company/anti-ai"
+                target="_blank"
+              >
                 <LinkedinFilled style={{ fontSize: "24px", color: "white" }} />
               </Link>
             </Space>
@@ -69,16 +76,21 @@ const CustomFooter = () => (
               Contact Us
             </Title>
             <Text style={{ color: "white" }}>
-              <PhoneOutlined /> +91 9116-665513
+              <PhoneOutlined />{" "}
+              <a href="tel:+919116665513">Call Us: +91 9116-665513</a>
             </Text>
             <br />
             <Text style={{ color: "white" }}>
-              <MailOutlined /> hello@antiai.ltd
+              <MailOutlined />{" "}
+              <a href="mailto:hello@antiai.ltd">hello@antiai.ltd</a>
             </Text>
             <br />
             <Text style={{ color: "white" }}>
-              <HomeOutlined /> 52/210, Padmani VT Rd, Ward 27, Mansarovar Sector
-              5, Mansarovar, Jaipur, Rajasthan 302020
+              <HomeOutlined />{" "}
+              <a href="https://maps.app.goo.gl/4Sr5njL6XP9Qnyma6">
+                52/210, Padmani VT Rd, Ward 27, Mansarovar Sector 5, Mansarovar,
+                Jaipur, Rajasthan 302020
+              </a>
             </Text>
             <br />
           </Col>

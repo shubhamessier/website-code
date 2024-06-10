@@ -23,6 +23,7 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
+        <Route path="/" element={<ThreeScene />} />
         <Route path="/home" element={<ThreeScene />} />
         <Route path="/Career" element={<Career />} />
         <Route path="/Contact" element={<Contact />} />

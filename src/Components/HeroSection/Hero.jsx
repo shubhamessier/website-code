@@ -38,7 +38,7 @@ const HeroSection = () => {
             <h1 className="typewriter-wrapper">
               <Typewriter
                 words={[
-                  "Of course we don't pay our employees.",
+                  // "Of course we don't pay our employees.",
                   "An Innovation Powerhouse.",
                   "Driving the Future of Technology.",
                   "Using AI for making world a better place.",

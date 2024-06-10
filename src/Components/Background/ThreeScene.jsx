@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import NET from "vanta/dist/vanta.net.min";
-import Navbar from "../NavbarSection/Navbar";
+
 import Hero from "../HeroSection/Hero";
-import Image from "../ImageElement/About";
+import Image from "../ImageElement/Image";
 // import Contact from "../ContactSection/Contact";
 import Count from "../CountSection/Count";
 
@@ -56,8 +56,6 @@ const ThreeScene = () => {
         }}
       />
       <Hero />
-
-      <Image />
       {/* <Contact /> */}
     </div>
   );
