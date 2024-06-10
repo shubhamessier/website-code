@@ -1,3 +1,6 @@
+* {
+  position: sticky;
+}
 .flex {
   display: flex;
   justify-content: center;

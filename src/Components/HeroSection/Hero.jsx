@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { Typewriter } from "react-simple-typewriter";
-// import Lottie from "lottie-react";
-// import animationData from "./Animation - 1717831865062.json";
+// import { Button } from "antd";
+import Button from "@mui/material/Button";
+
 import "./Hero.css"; // Import CSS file
 
 const HeroSection = () => {
@@ -37,7 +38,7 @@ const HeroSection = () => {
             <h1 className="typewriter-wrapper">
               <Typewriter
                 words={[
-                  // "Ofcourse we don't pay our employees.",
+                  "Of course we don't pay our employees.",
                   "An Innovation Powerhouse.",
                   "Driving the Future of Technology.",
                   "Using AI for making world a better place.",
@@ -56,12 +57,12 @@ const HeroSection = () => {
               uncontrolled rise of Artificial Intelligence, Safeguarding people
               across the globe through our Innovative Software solutions.
             </p>
+            {/* <p>
+              <Button className="custom-button">See More</Button>
+            </p> */}
           </div>
         </div>
       </section>
-      {/* <div className="animation-wrapper">
-        <Lottie animationData={animationData} />
-      </div> */}
     </div>
   );
 };

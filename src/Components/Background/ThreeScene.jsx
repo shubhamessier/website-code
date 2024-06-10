@@ -56,7 +56,7 @@ const ThreeScene = () => {
         }}
       />
       <Hero />
-      <Count />
+
       <Image />
       {/* <Contact /> */}
     </div>

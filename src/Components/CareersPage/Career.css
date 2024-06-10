@@ -12,7 +12,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px;
+  padding: 20px;
 }
 
 form {
@@ -21,12 +21,13 @@ form {
   align-items: center;
   background-color: rgba(255, 255, 255, 0.15); /* Glassmorphism background */
   backdrop-filter: blur(10px); /* Glassmorphism blur effect */
-  padding: 30px;
-  margin: 30px;
-  margin-top: 80px;
+  padding: 20px;
+  margin: 20px;
+  margin-top: 50px;
   border-radius: 10px;
+
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Darker shadow */
-  max-width: 550px;
+  max-width: 500px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -41,8 +42,8 @@ input[type="tel"],
 input[type="url"],
 select {
   width: 100%;
-  padding: 20px;
-  margin: 15px 0;
+  padding: 15px;
+  margin: 10px 0;
   border: 1px solid #555; /* Darker border */
   border-radius: 10px;
   box-sizing: border-box;
@@ -68,8 +69,8 @@ select:focus {
 
 input[type="submit"] {
   width: 100%;
-  padding: 20px;
-  margin: 30px 0;
+  padding: 15px;
+  margin: 20px 0;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -95,45 +96,6 @@ label {
   color: #eee; /* Light label text color */
   font-weight: bold;
   margin-top: 15px;
-}
-
-h1 {
-  color: #eee; /* Light heading text color */
-  text-align: left;
-  font-size: 3.5em;
-  margin-top: 3rem;
-  margin-bottom: 30px;
-}
-
-p {
-  color: #ccc; /* Lighter paragraph text color */
-  font-size: 1em;
-  margin-bottom: 20px;
-  max-width: 500px;
-  text-align: left;
-}
-
-li {
-  color: #ccc; /* Lighter list item text color */
-}
-ul {
-  color: #ccc; /* Lighter list text color */
-  font-size: 1em;
-  list-style-type: disc;
-  padding-left: 5px;
-  margin-bottom: 20px;
-  max-width: 500px;
-  text-align: left;
-}
-
-.error-input {
-  border-color: #ff6666;
-  box-shadow: 0 0 5px rgba(255, 24, 24, 0.5);
-}
-
-.captcha-container {
-  margin-top: 15px;
-  text-align: left; /* Align the captcha container and question to the left */
 }
 
 @media screen and (min-width: 768px) {
