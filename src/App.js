@@ -10,10 +10,18 @@ import Contact from "./Components/ContactSection/Contact";
 
 function App() {
   useEffect(() => {
+    // Enforce HTTPS redirection
+    if (window.location.protocol !== 'https:' && process.env.NODE_ENV === 'production') {
+      window.location.href = `https:${window.location.href.substring(window.location.protocol.length)}`;
+    }
+
+    // Prevent the default context menu from appearing
     const handleContextMenu = (event) => {
       event.preventDefault();
     };
     document.addEventListener("contextmenu", handleContextMenu);
+
+    // Cleanup event listener on component unmount
     return () => {
       document.removeEventListener("contextmenu", handleContextMenu);
     };
