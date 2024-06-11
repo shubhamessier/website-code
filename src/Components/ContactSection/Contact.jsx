@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import "./Contact.css"; // Import the CSS file for styling
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -41,88 +42,34 @@ const Contact = () => {
   };
 
   return (
-    <Container style={{ paddingTop: "50px" }}>
+    <Container className="contact-container">
       <Row>
-        <Col
-          md={6}
-          className="c-left"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "flex-start",
-          }}
-        >
-          <h1 style={{ color: "red" }}>Contact Us</h1>
+        <Col md={6} className="c-left">
+          <h1 className="contact-title">Contact Us</h1>
         </Col>
-        <Col
-          md={6}
-          className="c-right"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <form
-            onSubmit={onSubmit}
-            style={{ width: "100%", maxWidth: "400px" }}
-          >
+        <Col md={6} className="c-right">
+          <form onSubmit={onSubmit} className="contact-form">
             <input
               type="text"
               name="name"
-              className="user"
+              className="contact-input"
               placeholder="Name"
               required
-              style={{
-                width: "100%",
-                padding: "10px",
-                margin: "10px 0",
-                borderRadius: "5px",
-                border: "1px solid #129f44",
-              }}
             />
             <input
               type="email"
               name="email"
-              className="user"
+              className="contact-input"
               placeholder="Email"
               required
-              style={{
-                width: "100%",
-                padding: "10px",
-                margin: "10px 0",
-                borderRadius: "5px",
-                border: "1px solid #ccc",
-              }}
             />
             <textarea
               name="message"
-              className="user"
+              className="contact-input"
               placeholder="Message"
               required
-              style={{
-                width: "100%",
-                padding: "10px",
-                margin: "10px 0",
-                borderRadius: "5px",
-                border: "1px solid #ccc",
-                resize: "vertical",
-              }}
             />
-            <Button
-              type="submit"
-              className="button"
-              style={{
-                width: "100%",
-                padding: "10px",
-                borderRadius: "5px",
-                backgroundColor: "#007bff",
-                color: "#fff",
-                border: "none",
-              }}
-            >
+            <Button type="submit" className="contact-button">
               Send
             </Button>
           </form>
@@ -134,11 +81,7 @@ const Contact = () => {
         onClose={handleClose}
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
       >
-        <Alert
-          onClose={handleClose}
-          severity="success"
-          sx={{ backgroundColor: "#2196F3" }}
-        >
+        <Alert onClose={handleClose} severity="success">
           Form submitted successfully!
         </Alert>
       </Snackbar>
