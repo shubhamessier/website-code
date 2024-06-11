@@ -113,19 +113,7 @@ const CustomFooter = () => (
       </Col>
     </Row>
     <Row justify="center" style={{ marginTop: "20px" }}>
-      <Text style={{ color: "white" }}>
-        Support us poor developers by Sending money to use thorugh our UPI Id,
-        Shubham.gaur7116@oksbi.
-      </Text>
-      <Text style={{ color: "white" }}>
-        Please kardo na, bhuk lagi he ~ Rahul <br></br>
-      </Text>
-      <Text style={{ color: "white" }}>
-        Pedal Chal Chal ke pero me chhale pade he ~ Gaurav
-      </Text>
-      <Text style={{ color: "white" }}>
-        Kutte ne kaat liya, kutta girlfriend ek barabar bc ~ Sarvesh
-      </Text>
+      <Text style={{ color: "white" }}>&copy; Anti AI Private limited.</Text>
     </Row>
   </Footer>
 );

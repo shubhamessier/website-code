@@ -2,14 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Alert, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import { useForm } from "react-hook-form";
-import { motion, useScroll, useSpring } from "framer-motion";
 
 import "./Career.css";
 
-
-<style>
-
-</style>
+<style></style>;
 const generateCaptcha = () => {
   const operations = [
     { symbol: "+", method: (a, b) => a + b },
