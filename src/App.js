@@ -29,8 +29,9 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
+      
       <Routes>
+      <Navbar />
         <Route path="/" element={<ThreeScene />} />
         <Route path="/home" element={<ThreeScene />} />
         <Route path="/Career" element={<Career />} />
